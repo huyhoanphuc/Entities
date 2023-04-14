@@ -1,0 +1,120 @@
+
+local dead = false
+if game.Players.LocalPlayer.Character.Humanoid.Health<=0 then
+dead = true
+end
+
+game.Workspace.CurrentRooms.ChildAdded:Connect(function()
+
+if dead == false then
+
+if game.Workspace:FindFirstChild("Ambience_Dark").Playing == true then
+local silence = Instance.new("Part")
+silence.Parent = game.ReplicatedStorage
+silence.Name = "Silence"
+local static = Instance.new("Sound")
+static.SoundId = "rbxassetid://9120425687"
+static.Parent = game.ReplicatedStorage
+static.Name = "SilenceSignal"
+static.Pitch = 0.6
+static.Volume = 1.5
+static.TimePosition = 0.2
+			local Light = Instance.new("PointLight")
+               Light.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+			Light.Brightness = 6
+			Light.Color = Color3.fromRGB(255,0,0)
+			Light.Enabled = true
+			Light.Range = 0
+			Light.Shadows = true
+local silent = true
+
+
+coroutine.wrap(function()
+while true and silent do
+if not silence then break end
+
+-- Desmond the Moon Bear
+wait(5)
+if dead == false then
+if silent == true then
+static:Play()
+local Gui = Instance.new("ScreenGui")
+Gui.Parent = game.Players.LocalPlayer.PlayerGui
+Gui.IgnoreGuiInset = true
+local a = game.Players.LocalPlayer.PlayerGui.MainUI
+local Static = a.Death.Static.Static:Clone()
+Static.Name = "Static"
+Static.Parent = Gui
+Static.TileSize = UDim2.new(0, 600, 0, 600)
+Static.ImageColor3 = Color3.fromRGB(255, 0, 0)
+Static.Size = UDim2.new(1, 6000, 1, 6000)
+local pos1 = Static.Position
+local pos2 = UDim2.new(0, 5, 0, 5)
+local pos3 = UDim2.new(0, 5, 0, 1)
+Static.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Static.BackgroundTransparency = 0.6
+Static.ImageTransparency = 0
+
+coroutine.wrap(function()
+while true do
+Static.Position = pos1
+wait(0)
+Static.Position = pos2
+wait(0)
+Static.Position = pos3
+wait(0)
+end
+end)()
+coroutine.wrap(function()
+while true do
+Static.Rotation = 0
+wait(0)
+Static.Rotation = 90
+wait(0)
+Static.Rotation = 180
+wait(0)
+end
+end)()
+wait(0.5)
+Gui:Destroy()
+end
+end
+wait(10)
+if dead == false then
+if silent == true then
+game.TweenService:Create(Light,TweenInfo.new(0.5),{Range = 20}):Play()
+wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(math.random(10,30))
+if game.Players.LocalPlayer.Character.Humanoid.Health<=0 then
+dead = true
+game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Silence"
+end
+local speaker = game.Players.LocalPlayer.Character
+		local animation = Instance.new("Animation")
+		animation.AnimationId = "rbxassetid://10096088747"
+		animTrack = speaker:FindFirstChildOfClass('Humanoid'):LoadAnimation(animation)
+		animTrack:Play()
+game.TweenService:Create(Light,TweenInfo.new(5),{Range = 0}):Play()
+wait(1.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+end
+end
+wait(7.5)
+end
+end)()
+-- Skateboardsssssssss
+game.Workspace.CurrentRooms.ChildAdded:Connect(function()
+if dead == false then
+if silent == true then
+Light:Destroy()
+silence:Destroy()
+static:Destroy()
+silent = false
+end
+end
+end)
+end
+end
+end)

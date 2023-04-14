@@ -1,0 +1,30 @@
+--https://youtu.be/YLC5N7dJPPM
+local pee = false
+if game.Players.LocalPlayer.Character.Humanoid.Health<=0 then
+   pee = true
+end
+
+	local fuck = false
+	game.ReplicatedStorage.GameData.LatestRoom.Changed:Connect(function()
+		if fuck == false then
+		if pee == false then
+		    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(100)
+		    pee = true
+		    game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "Greed"
+end
+		end
+	end)
+		local tween2 = game:GetService("TweenService")
+		tween2:Create(game.Lighting.MainColorCorrection, TweenInfo.new(2), {Contrast = -0.19}):Play()
+		tween2:Create(game.Lighting.MainColorCorrection, TweenInfo.new(2), {Saturation = -0.19}):Play()
+		local TweenService = game:GetService("TweenService")
+		local TW2 = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(2),{TintColor = Color3.fromRGB(255, 191, 154)})
+		TW2:Play()
+	wait(5.7)
+		local tween = game:GetService("TweenService")
+		tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(4), {Contrast = 0}):Play()
+		tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(4), {Saturation = 0}):Play()
+		local TweenService = game:GetService("TweenService")
+		local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(4),{TintColor = Color3.fromRGB(255, 255, 255)})
+		TW:Play()
+	fuck = true
