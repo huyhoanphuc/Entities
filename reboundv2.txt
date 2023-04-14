@@ -344,7 +344,7 @@ end
 entity.Debug.OnEntitySpawned = function(entityModel)
     print("Entity has spawned:", entityModel)
     wait(15)
-    workspace.Rebound:Destroy()
+    workspace.Rebound4:Destroy()
 end
 
 entity.Debug.OnEntityDespawned = function(entityModel)
