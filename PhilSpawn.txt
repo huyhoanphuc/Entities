@@ -1,0 +1,80 @@
+
+local Phil = workspace.Phil
+ 
+local currentLoadedRoom=workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value]
+
+local num=math.floor(#currentLoadedRoom.Nodes:GetChildren()/2)
+Phil.CFrame=(
+	num==0 and currentLoadedRoom.Base or currentLoadedRoom.Nodes[num]
+).CFrame+Vector3.new(0,-6,0)
+ 
+wait(1)
+ModuleEvents = require(game:GetService("ReplicatedStorage").ClientModules.Module_Events)
+ModuleEvents.shatter(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value])
+    Phil.CFrame = CFrame.new(0, 0, 35000)
+		local CameraShaker = require(game.ReplicatedStorage.CameraShaker)
+		local camara = game.Workspace.CurrentCamera
+		local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
+			camara.CFrame = camara.CFrame * shakeCf
+		end)
+		local camara = game.Workspace.CurrentCamera
+		local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
+			camara.CFrame = camara.CFrame * shakeCf
+		end)
+		camShake:Start()
+		camShake:ShakeOnce(100,50,0.5,0.5)
+        local roast = Instance.new("Sound")
+    roast.Parent = workspace
+    roast.Name = "Break2"
+    roast.SoundId = "rbxassetid://6737582037"
+    roast.Volume = 1
+    local roast1 = Instance.new("Sound")
+    roast1.Parent = workspace
+    roast1.Name = "Break1"
+    roast1.SoundId = "rbxassetid://9103909576"
+    roast1.Volume = 1
+    local roast2 = Instance.new("Sound")
+    roast2.Parent = workspace
+    roast2.Name = "Break2"
+    roast2.SoundId = "rbxassetid://5961220911"
+    roast2.Volume = 1
+    roast2:Play()
+    roast1:Play()
+    roast:Play()
+	local tweeninfo = TweenInfo.new(0.5)
+	local info = {Color = Color3.new(0, 0, 0)}
+	for i,v in pairs(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value]:GetDescendants()) do
+		if v:IsA("Light") then
+			game.TweenService:Create(v,tweeninfo,info):Play()
+			if v.Parent.Name == "LightFixture" then
+				game.TweenService:Create(v.Parent,tweeninfo,info):Play()
+			end
+		end
+	end
+workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Assets.Rug:Destroy()
+room = game:GetService("ReplicatedStorage").GameData.LatestRoom.Value
+for i, v in pairs(workspace.CurrentRooms[room].Parts:GetChildren()) do 
+	if v.Name == "Wall" then
+		v.Material = "Limestone"
+		v.Color = Color3.new(0, 0, 0)
+			if v:FindFirstChild("Wallpaper") ~= nil then
+			v.Wallpaper:Destroy()
+			end
+	end
+end
+for i, v in pairs(workspace.CurrentRooms[room].Parts.DropCeiling:GetChildren()) do 
+	if v.Name == "Ceiling" then
+		v.Material = "Limestone"
+		v.Color = Color3.new(0, 0, 0)
+	end
+end
+for i, v in pairs(workspace.CurrentRooms[room].Parts.DropCeiling.Model:GetChildren()) do 
+	v.Material = "Limestone"
+	v.Color = Color3.new(0, 0, 0)
+end
+    for i,v in pairs(workspace.CurrentRooms[game.ReplicatedStorage.GameData.LatestRoom.Value].Parts:GetDescendants()) do
+  if v:IsA("BasePart") and game.ReplicatedStorage.GameData.LatestRoom.Value < 90 then
+        v.Material = Enum.Material.Limestone
+        v.Color = Color3.new(0, 0, 0) -- sets the color
+        end
+    end
