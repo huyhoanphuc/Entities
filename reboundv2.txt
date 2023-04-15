@@ -49,7 +49,7 @@ local delay = {"2", "2.5", "1.5", "1", "2.1"}
 local fuck = delay[math.random(1, #delay)]
 wait(2.8)
 
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))()
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))()
 
 -- Create entity
 
@@ -126,7 +126,7 @@ entity.Debug.OnEntityStartMoving = function(entityModel)
     print("Entity has started moving:", entityModel)
     game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
     
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))()
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))()
 
 -- Create entity
 
@@ -203,7 +203,7 @@ entity.Debug.OnEntityStartMoving = function(entityModel)
     print("Entity has started moving:", entityModel)
     game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
     
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))()
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))()
 
 -- Create entity
 
@@ -280,7 +280,7 @@ entity.Debug.OnEntityStartMoving = function(entityModel)
     print("Entity has started moving:", entityModel)
     game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
     
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))()
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))()
 
 -- Create entity
 
@@ -357,7 +357,7 @@ entity.Debug.OnEntityStartMoving = function(entityModel)
     print("Entity has started moving:", entityModel)
     game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
     
-local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/cannedmode/main/fuq.lua"))()
+local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Endless-Doors-In-Doors/main/fuq.lua"))()
 
 -- Create entity
 
