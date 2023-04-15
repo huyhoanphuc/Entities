@@ -16,6 +16,12 @@ local damage3 = Instance.new("Sound")
 damage3.SoundId = "rbxassetid://5507829691"
 damage3.Pitch = 1.2
 damage3.Volume = 0.7
+
+local CameraShaker = require(game.ReplicatedStorage.CameraShaker)
+local camara = game.Workspace.CurrentCamera
+local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
+	camara.CFrame = camara.CFrame * shakeCf
+end)
  
 local currentLoadedRoom=workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value]
 local eyes=game:GetObjects("rbxassetid://12285389022")[1]
@@ -46,6 +52,12 @@ if not Overseer then break end
 	local _,found=workspace.CurrentCamera:WorldToScreenPoint(eyes.Position)
 	if not found then
 	if v.Character ~= nil and not v.Character:GetAttribute("Hiding") then
+if workspace.Ambience_FigureEnd.Playing or workspace.Ambience_FigureStart.Playing or workspace.Ambience_Figure.Playing or workspace.Ambience_Seek.Playing or workspace:FindFirstChild("SeekMoving")  then
+return
+end
+
+camShake:Start()
+camShake:ShakeOnce(5, 15, 0.1, 1)
 		hum.Health-=3
           if no == false then
 		mom[math.random(1, #mom)]:Play()
