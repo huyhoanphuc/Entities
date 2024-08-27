@@ -7,195 +7,576 @@ local Room4 = workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameDa
 local Room5 = workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value + -4].RoomEntrance
 ModuleEvents = require(game:GetService("ReplicatedStorage").ClientModules.Module_Events)
 
+local Spawner = loadstring(game:HttpGet('https://raw.githubusercontent.com/MuhXd/DoorSuff/main/OtherSuff/DoorEntitySpawn%2BSource'))()
 
-local TweenService = game:GetService("TweenService")
-local boo = Instance.new("Sound")
-				boo.Volume = 2
-				boo.SoundId = "rbxassetid://6169705721"
-				boo.Parent = game.Players.LocalPlayer.PlayerGui
-				local JumpscareSound = Instance.new("Sound")
-				JumpscareSound.SoundId = "rbxassetid://6459610652"
-				JumpscareSound.Parent = game.Players.LocalPlayer.PlayerGui
-				JumpscareSound.Volume = 0
-				JumpscareSound.Looped = true
-				JumpscareSound:Play()
-				local Bruh = TweenService:Create(JumpscareSound, TweenInfo.new(0.2),{Volume = 3})
-				local Moment = TweenService:Create(JumpscareSound, TweenInfo.new(0.5),{Volume = 0})
-		local CameraShaker = require(game.ReplicatedStorage.CameraShaker)
-		local camara = game.Workspace.CurrentCamera
-		local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
-			camara.CFrame = camara.CFrame * shakeCf
-		end)
-		camShake:Start()
+-- Create entity
+local entity = Spawner.createEntity({
+    CustomName = "MultiMonter", -- Custom name of your entity
+    Model = "rbxassetid://11463891411", -- Can be GitHub file or rbxassetid
+    Speed = 100, -- Percentage, 100 = default Rush speed
+    DelayTime = 5, -- Time before starting cycles (seconds)
+    HeightOffset = 0,
+    CanKill = false,
+    NoDieOnCrouching = false,
+    NoHiding = false,
+    AntiCrucifix = false,
+    KillRange = 20,
+    OneRoom = false,
+    DieOnLook = false,
+    BreakLights = false,
+    BackwardsMovement = false,
+     MovementDeath = {
+        false, -- Turned On?
+        '1',  --- '1'= 'Instant Without Being Looked out' | '2' = 'With Being Looked At'
+    },
+    FlickerLights = {
+        false, -- Enabled/Disabled
+        1, -- Time (seconds)
+    },
+    Cycles = {
+        Min = 1,
+        Max = 1,
+        WaitTime = 2,
+    },
+    CamShake = {
+        true, -- Enabled/Disabled
+        {30,25,0,2,1,6}, -- Shake values (don't change if you don't know)
+        500, -- Shake start distance (from Entity to you)
+    },
+    Jumpscare = {
+        false, -- Enabled/Disabled
+        {
+            Type = "3", -- "Normal" or 1 | "Pop" or 2 | "endlessdoorsrebound" or "Rebound" or 3 | More coming Soon
+            Image1 = "rbxassetid://18384688860", -- Image1 url
+            Image2 = "rbxassetid://18384701999", -- Image2 url
+            Shake = true,
+            Sound1 = {
+                "18103906189", -- SoundId Link or Roblox ID
+                { Volume = 3 }, -- Sound properties
+            },
+            Sound2 = {
+                "18103906189", -- SoundId Link or Roblox ID
+                { Volume = 3 }, -- Sound properties
+            },
+            Flashing = {
+                true, -- Enabled/Disabled
+                Color3.fromRGB(255, 255, 255), -- Color
+            },
+            Tease = {
+                true, -- Enabled/Disabled
+                Min = 1,
+                Max = 3,
+            },
+        },
+    },
+    Color = 'GuidingLight', -- CuriousLight ( Yellow ) | GuidingLight ( Blue )
+    DiffrentMessages = false,
+    CustomDialog = {  
+        {"A-60 has seen you.", "It will consume anyone on sight.", "It takes a bit to fully spawn in", "so you can use that to your advantage."}, -- Death Messages
+        {"Stop Dieing"},
+        {"Bruh", "Use what you have learned from Rush!"},
+        {"It seems like Template is causing quite the ruckus...", "Hide in a closet or bed as quickly as possible!"},
+         {"I have told You What to do", "YOU JUST HAVE A SKILL ISSUE"}
+    }
+})
 
-local Speed = 1,Enum.EasingStyle.Linear,Enum.EasingDirection.Out
-local Delay = 1
-local ded = false 
+-----[[ Advanced Sctipting ]]-----
 
-local A60 = Instance.new("Part")
-A60.Parent = workspace
-A60.Name = "A-60"
-A60.Anchored = true
-A60.CanCollide = false
-A60.Transparency = 1
-A60.CFrame = Room5.CFrame
+entity.Debug.OnEntityMoving = function(Invincible,Hiding,plrCollisionPoint)
+print("Invincible: "..tostring(Invincible))
+print("Player to Entity Collision (None hiding Point): "..tostring(plrCollisionPoint))
+print("Hiding: "..tostring(Hiding))
+end
+       
+entity.Debug.OnEntitySpawned = function()
+    print("Entity has spawned:")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+end
 
-local Ambush = game:GetObjects("rbxassetid://11463891411")[1]
-Ambush.Parent = A60
-local Chicken = Ambush.Head.Attachment:Clone()
-local Italian = Ambush.Head.PointLight:Clone()
-local Static = Ambush.HumanoidRootPart.Sound:Clone()
-Static.Parent = A60
-Static.Volume = 10
-Static.RollOffMinDistance = 1
-Static.Volume = 10
-local Static2 = Static:Clone()
-Static2.TimePosition = 2
-Static2.Parent = A60
-Italian.Parent = A60
-Chicken.Parent = A60
-Chicken.CFrame = CFrame.new(0, 0.5, 0)
-local Particle1 = Chicken.BlackTrail:Clone()
-Particle1.Parent = Chicken
-Particle1.Name = "BlackTrail2"
-Particle1.Texture = "rbxassetid://10587729749"
-Particle1.Drag = -5
-Particle1.Rate = 10000
-local Particle2 = Chicken.BlackTrail:Clone()
-Particle2.Parent = Chicken
-Particle2.Name = "BlackTrail3"
-Particle2.Texture = "rbxassetid://241629053"
-Particle2.Drag = -5
-Particle2.Rate = 10000
-local Particle3 = Chicken.BlackTrail:Clone()
-Particle3.Parent = Chicken
-Particle3.Name = "BlackTrail4"
-Particle3.Texture = "rbxasset://textures/particles/smoke_main.dds"
-Particle3.Drag = -8
-Particle3.Rate = 10000
-local Particle4 = Chicken.BlackTrail:Clone()
-Particle4.Parent = Chicken
-Particle4.Name = "BlackTrail5"
-Particle4.Texture = "rbxassetid://rbxassetid://11387304784"
-Particle4.Drag = -5
-Particle4.Rate = 10000
-Ambush:Destroy()
-local A = Chicken.Image
-A.Rate = 25000
-local roast = Instance.new("Sound")
-roast.Parent = A60
-roast.Name = "close"
-roast.SoundId = "rbxassetid://6336173633"
-roast.Volume = 5
-roast.Pitch = 0.8
-local distort = Instance.new("DistortionSoundEffect")
-distort.Level = 0.9
-distort.Parent = roast
-local eq = Instance.new("EqualizerSoundEffect")
-eq.HighGain = 10
-eq.MidGain = 10
-eq.LowGain = 10
-eq.Parent = roast
-roast.Looped = true
-roast.RollOffMaxDistance = 60
-roast.RollOffMinDistance = 1
-roast.RollOffMode = Enum.RollOffMode.InverseTapered
-roast:Play()
-local swap = 0.05
-coroutine.wrap(function()
-while true do 	A.Texture = "rbxassetid://192267375" 	wait(swap) 	A.Texture = "rbxassetid://1972219024" 	wait(swap) 	A.Texture = "rbxassetid://1822114127" 	wait(swap) 	A.Texture = "rbxassetid://3413871766" 	wait(swap) 	A.Texture = "rbxassetid://3354536350" 	wait(swap) 	A.Texture = "rbxassetid://17865063" 	wait(swap) 	A.Texture = "rbxassetid://4749623118" 	wait(swap) 	A.Texture = "rbxassetid://1857893092" 	wait(swap) 	A.Texture = "rbxassetid://4508624823" 	wait(swap) 	A.Texture = "rbxassetid://6309704436" 	wait(swap) 	A.Texture = "rbxassetid://10458678325" 	wait(swap) 	 end
-end)()
-local Rebound = A60
---------------
-				local function canSeeTarget(target,size)
-					if killed == true then
-						return
-					end
-					local origin = A60.Position
-					local direction = (target.HumanoidRootPart.Position - A60.Position).unit * size
-					local ray = Ray.new(origin, direction)
+entity.Debug.OnEntityDespawned = function()
+    local sound = Instance.new("Sound", workspace)
+			sound.SoundId = "rbxassetid://3908308607"
+			sound:Play()
+			sound.Volume = 5
+			rageentrance:Destroy()
+			wait(2)
+			sound:Destroy()
+end
 
-					local hit, pos = workspace:FindPartOnRay(ray, A60)
+entity.Debug.OnEntityStartMoving = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+end
 
+entity.Debug.OnEntityFinishedRebound = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/huyhoanphuc/crazy-za/main/README.mdhekk"))()
+end
 
-					if hit then
-						if hit:IsDescendantOf(target) then
-							killed = true
-							return true
-						end
-					else
-						return false
-					end
-				end
-wait(1)
--------------------------
-				spawn(function()
-					while A60 ~= nil do wait(0.2)
-						local v = game.Players.LocalPlayer
-						local parent = script.Parent
-						if v.Character ~= nil and not v.Character:GetAttribute("Hiding") then
-							if canSeeTarget(v.Character,50) then
-							local damn = A60:Clone()
-                        damn.Parent = game.Workspace.CurrentCamera
-                        game:GetService("RunService").RenderStepped:Connect(function()
-                        game.TweenService:Create(damn,TweenInfo.new(0.3),{CFrame = game.Workspace.CurrentCamera.CFrame * CFrame.new(0, -0.2, -6)}):Play()
-                        end)
-TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.5}):Play()
-local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(655, 255, 255)})
-TW:Play()
-                        local B = damn.Attachment.Image
-                        coroutine.wrap(function()
-while true do 	B.Texture = "rbxassetid://192267375" 	wait(swap) 	B.Texture = "rbxassetid://1972219024" 	wait(swap) 	B.Texture = "rbxassetid://1822114127" 	wait(swap) 	B.Texture = "rbxassetid://3413871766" 	wait(swap)   B.Texture = "rbxassetid://3354536350" 	wait(swap) 	B.Texture = "rbxassetid://17865063" 	wait(swap) 	B.Texture = "rbxassetid://4749623118" 	wait(swap) 	B.Texture = "rbxassetid://1857893092" 	wait(swap) 	B.Texture = "rbxassetid://4508624823" 	wait(swap) 	B.Texture = "rbxassetid://6309704436" 	wait(swap) 	B.Texture = "rbxassetid://10458678325" 	wait(swap) 	 end
-end)()
-coroutine.wrap(function()
-while true do     if damn then	game.Players.LocalPlayer.Character.Humanoid:TakeDamage(math.random(10,70))	 end wait(0.1) end
-end)()
-				JumpscareSound.Volume = 3
-				                   game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "A-60"
-				coroutine.wrap(function()
-				while true do
-				if damn then
-				wait(0.01)
-				if v.Character.Humanoid.Health == 0 then
-				boo:Play()
-				Moment:Play()
-				damn:Destroy()
-TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(7),{TintColor = Color3.fromRGB(255, 255, 255)})
-TW:Play()
-                    loadstring(game:HttpGet("https://raw.githubusercontent.com/check78/Jumpscares/main/RoomNDoor60Jumpscare.txt"))()
-				end
-				end
-				end
-				end)()
-							end
-						end
-    local distance = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - A60.Position).magnitude
-    if distance < 70 then
-           camShake:ShakeOnce(5,15,0.1,1)
+entity.Debug.OnEntityEnteredRoom = function(entityTable, room)
+    print("Entity:", "has entered room:",room)
+end
+
+entity.Debug.OnLookAtEntity = function()
+end
+
+entity.Debug.OnDeath = function()
+    warn("Player has died.")
+    local CameraShaker = require(game.ReplicatedStorage.CameraShaker)
+			local camara = game.Workspace.CurrentCamera
+			local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
+				camara.CFrame = camara.CFrame * shakeCf
+			end)
+			camShake:Start()
+			camShake:ShakeOnce(30,4,0.4,0.4)
+    local sound = Instance.new("Sound")
+	sound.SoundId = "rbxassetid://"..6459610652
+	sound.Looped = false
+	sound.Parent = workspace
+	sound.Volume = 1
+	sound:Play()
+    local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325"}
+    -- UI Construction
+
+    local JumpscareGui = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local Face = Instance.new("ImageLabel")
+
+    JumpscareGui.Name = "JumpscareGui"
+    JumpscareGui.IgnoreGuiInset = true
+    JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    JumpscareGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    Background.Name = "Background"
+    Background.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Background.BorderSizePixel = 0
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.ZIndex = 999
+    Background.BackgroundTransparency = 0.6
+
+    Face.Name = "Face"
+    Face.AnchorPoint = Vector2.new(0.5, 0.5)
+    Face.BackgroundTransparency = 1
+    Face.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.Size = UDim2.new(0, 0, 0, 0)
+    Face.Image = mom[math.random(1, #mom)]
+    Face.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Face.ImageTransparency = 0
+
+    Face.Parent = Background
+    Background.Parent = JumpscareGui
+
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Size = UDim2.new(0, 850, 0, 850), ImageTransparency = 0}):Play()
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Rotation = math.random(-10,10)}):Play()
+    task.wait(0.2)
+    game.TweenService:Create(Face, TweenInfo.new(0.6), {ImageTransparency = 1}):Play()
+game.TweenService:Create(Background, TweenInfo.new(2.6), {BackgroundTransparency = 1}):Play()
+    task.wait()
+    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(30)
+    JumpscareGui:Destroy()
+wait()
+local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325"}
+    -- UI Construction
+
+    local JumpscareGui = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local Face = Instance.new("ImageLabel")
+
+    JumpscareGui.Name = "JumpscareGui"
+    JumpscareGui.IgnoreGuiInset = true
+    JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    JumpscareGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    Background.Name = "Background"
+    Background.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Background.BorderSizePixel = 0
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.ZIndex = 999
+    Background.BackgroundTransparency = 0.6
+
+    Face.Name = "Face"
+    Face.AnchorPoint = Vector2.new(0.5, 0.5)
+    Face.BackgroundTransparency = 1
+    Face.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.Size = UDim2.new(0, 0, 0, 0)
+    Face.Image = mom[math.random(1, #mom)]
+    Face.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Face.ImageTransparency = 0
+
+    Face.Parent = Background
+    Background.Parent = JumpscareGui
+
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Size = UDim2.new(0, 850, 0, 850), ImageTransparency = 0}):Play()
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Rotation = math.random(-10,10)}):Play()
+    task.wait(0.2)
+    game.TweenService:Create(Face, TweenInfo.new(0.6), {ImageTransparency = 1}):Play()
+game.TweenService:Create(Background, TweenInfo.new(2.6), {BackgroundTransparency = 1}):Play()
+    task.wait()
+    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(30)
+    JumpscareGui:Destroy()
+wait()
+local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325"}
+    -- UI Construction
+
+    local JumpscareGui = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local Face = Instance.new("ImageLabel")
+
+    JumpscareGui.Name = "JumpscareGui"
+    JumpscareGui.IgnoreGuiInset = true
+    JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    JumpscareGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    Background.Name = "Background"
+    Background.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Background.BorderSizePixel = 0
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.ZIndex = 999
+    Background.BackgroundTransparency = 0.6
+
+    Face.Name = "Face"
+    Face.AnchorPoint = Vector2.new(0.5, 0.5)
+    Face.BackgroundTransparency = 1
+    Face.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.Size = UDim2.new(0, 0, 0, 0)
+    Face.Image = mom[math.random(1, #mom)]
+    Face.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Face.ImageTransparency = 0
+
+    Face.Parent = Background
+    Background.Parent = JumpscareGui
+
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Size = UDim2.new(0, 850, 0, 850), ImageTransparency = 0}):Play()
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Rotation = math.random(-10,10)}):Play()
+    task.wait(0.2)
+    game.TweenService:Create(Face, TweenInfo.new(0.6), {ImageTransparency = 1}):Play()
+game.TweenService:Create(Background, TweenInfo.new(2.6), {BackgroundTransparency = 1}):Play()
+    task.wait()
+    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(30)
+    JumpscareGui:Destroy()
+wait()
+local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325"}
+    -- UI Construction
+
+    local JumpscareGui = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local Face = Instance.new("ImageLabel")
+
+    JumpscareGui.Name = "JumpscareGui"
+    JumpscareGui.IgnoreGuiInset = true
+    JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    JumpscareGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    Background.Name = "Background"
+    Background.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Background.BorderSizePixel = 0
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.ZIndex = 999
+    Background.BackgroundTransparency = 0.6
+
+    Face.Name = "Face"
+    Face.AnchorPoint = Vector2.new(0.5, 0.5)
+    Face.BackgroundTransparency = 1
+    Face.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.Size = UDim2.new(0, 0, 0, 0)
+    Face.Image = mom[math.random(1, #mom)]
+    Face.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Face.ImageTransparency = 0
+
+    Face.Parent = Background
+    Background.Parent = JumpscareGui
+
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Size = UDim2.new(0, 850, 0, 850), ImageTransparency = 0}):Play()
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Rotation = math.random(-10,10)}):Play()
+    task.wait(0.2)
+    game.TweenService:Create(Face, TweenInfo.new(0.6), {ImageTransparency = 1}):Play()
+game.TweenService:Create(Background, TweenInfo.new(2.6), {BackgroundTransparency = 1}):Play()
+    task.wait()
+    game.Players.LocalPlayer.Character.Humanoid:TakeDamage(5)
+    JumpscareGui:Destroy()
+wait()
+local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325"}
+    -- UI Construction
+
+    local JumpscareGui = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local Face = Instance.new("ImageLabel")
+
+    JumpscareGui.Name = "JumpscareGui"
+    JumpscareGui.IgnoreGuiInset = true
+    JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    JumpscareGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    Background.Name = "Background"
+    Background.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Background.BorderSizePixel = 0
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.ZIndex = 999
+    Background.BackgroundTransparency = 0.6
+
+    Face.Name = "Face"
+    Face.AnchorPoint = Vector2.new(0.5, 0.5)
+    Face.BackgroundTransparency = 1
+    Face.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.Size = UDim2.new(0, 0, 0, 0)
+    Face.Image = mom[math.random(1, #mom)]
+    Face.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Face.ImageTransparency = 0
+
+    Face.Parent = Background
+    Background.Parent = JumpscareGui
+
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Size = UDim2.new(0, 850, 0, 850), ImageTransparency = 0}):Play()
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Rotation = math.random(-10,10)}):Play()
+    task.wait(0.2)
+    game.TweenService:Create(Face, TweenInfo.new(0.6), {ImageTransparency = 1}):Play()
+game.TweenService:Create(Background, TweenInfo.new(2.6), {BackgroundTransparency = 1}):Play()
+    task.wait()
+    JumpscareGui:Destroy()
+wait()
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(5)
+local mom = {"rbxassetid://192267375", "rbxassetid://1972219024", "rbxassetid://1822114127", "rbxassetid://3413871766", "rbxassetid://3354536350", "rbxassetid://17865063", "rbxassetid://4749623118", "rbxassetid://1857893092", "rbxassetid://4508624823", "rbxassetid://6309704436", "rbxassetid://10458678325"}
+    -- UI Construction
+
+    local JumpscareGui = Instance.new("ScreenGui")
+    local Background = Instance.new("Frame")
+    local Face = Instance.new("ImageLabel")
+
+    JumpscareGui.Name = "JumpscareGui"
+    JumpscareGui.IgnoreGuiInset = true
+    JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    JumpscareGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+    Background.Name = "Background"
+    Background.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    Background.BorderSizePixel = 0
+    Background.Size = UDim2.new(1, 0, 1, 0)
+    Background.ZIndex = 999
+    Background.BackgroundTransparency = 0.6
+
+    Face.Name = "Face"
+    Face.AnchorPoint = Vector2.new(0.5, 0.5)
+    Face.BackgroundTransparency = 1
+    Face.Position = UDim2.new(0.5, 0, 0.5, 0)
+    Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.Size = UDim2.new(0, 0, 0, 0)
+    Face.Image = mom[math.random(1, #mom)]
+    Face.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    Face.ImageTransparency = 0
+
+    Face.Parent = Background
+    Background.Parent = JumpscareGui
+
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Size = UDim2.new(0, 850, 0, 850), ImageTransparency = 0}):Play()
+    game.TweenService:Create(Face, TweenInfo.new(0.2), {Rotation = math.random(-10,10)}):Play()
+    task.wait(0.2)
+    game.TweenService:Create(Face, TweenInfo.new(0.6), {ImageTransparency = 1}):Play()
+game.TweenService:Create(Background, TweenInfo.new(2.6), {BackgroundTransparency = 1}):Play()
+    task.wait(3.5)
+    game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "A-60"
+    JumpscareGui:Destroy()
+    game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "A-60"
+    wait()
+    game:GetService("ReplicatedStorage").GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "A-60"
+local func, setupval, getinfo, typeof, getgc, next = nil, debug.setupvalue or setupvalue, debug.getinfo or getinfo, typeof, getgc, next
+
+for i,v in next, getgc(false) do
+    if typeof(v) == "function" then
+        local info = getinfo(v)
+        if info.currentline == 54 and info.nups == 2 and info.is_vararg == 0 then
+            func = v
+            break
+        end
     end
-					end
-				end)
-				----------------------
-game.TweenService:Create(Rebound,TweenInfo.new(Speed),{CFrame = Room4.CFrame}):Play()
-ModuleEvents.shatter(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value + -4])
-wait(Delay)
-game.TweenService:Create(Rebound,TweenInfo.new(Speed),{CFrame = Room3.CFrame}):Play()
-ModuleEvents.shatter(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value + -3])
-wait(Delay)
-game.TweenService:Create(Rebound,TweenInfo.new(Speed),{CFrame = Room2.CFrame}):Play()
-ModuleEvents.shatter(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value + -2])
-wait(Delay)
-game.TweenService:Create(Rebound,TweenInfo.new(Speed),{CFrame = Room1.CFrame}):Play()
-ModuleEvents.shatter(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value + -1])
-wait(Delay)
-game.TweenService:Create(Rebound,TweenInfo.new(Speed),{CFrame = Door.CFrame}):Play()
-ModuleEvents.shatter(workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value])
-wait(Delay)
-game.TweenService:Create(Static,TweenInfo.new(2),{Pitch = 0}):Play()
-game.TweenService:Create(Static2,TweenInfo.new(2),{Pitch = 0}):Play()
-game.TweenService:Create(roast,TweenInfo.new(2),{Pitch = 0}):Play()
-A60.Anchored = false
-A60.CanCollide = false
-wait(3)
-A60:Destroy()
+end
+
+local function DeathHint(hints, type: string)
+    setupval(func, 1, hints)
+    if type ~= nil then
+        setupval(func, 2, type)
+    end
+end
+
+DeathHint({
+    "You died to an enitity designated as A-60",
+    "It can Apear at any moment, a loud scream will anounce its presence",
+    "When you hear it spawn you must stay out of its reach as soon as possible",
+    "It knows exactly where you are so hiding in different places will not work.."
+}, "Blue") -- "Blue" or "Yellow"
+end
+
+------------------------
+
+-- Run the created entity
+Spawner.runEntity(entity)
